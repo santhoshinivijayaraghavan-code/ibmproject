@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <a href="/">← Home</a>
+    <h1>Study Chat</h1>
+
+    <form method="post">
+        <textarea name="question" placeholder="Ask your question..." required>{{ question }}</textarea>
+        <button type="submit">Ask AI</button>
+    </form>
+
+    {% if answer %}
+    <div class="answer">
+        <h3>AI Answer</h3>
+        <pre>{{ answer }}</pre>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

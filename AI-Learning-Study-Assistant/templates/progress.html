@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <a href="/">← Home</a>
+    <h1>Memory & Progress</h1>
+
+    <h2>Saved Study Memory</h2>
+    {% for item in data.memories %}
+        <div class="answer">
+            <b>{{ item.topic }}</b>
+            <p>{{ item.note }}</p>
+        </div>
+    {% else %}
+        <p>No memory saved yet.</p>
+    {% endfor %}
+
+    <h2>Quiz Results</h2>
+    {% for item in data.quizzes %}
+        <div class="answer">
+            {{ item.topic }} — {{ item.score }}/{{ item.total }}
+        </div>
+    {% else %}
+        <p>No quiz results yet.</p>
+    {% endfor %}
+</div>
+</body>
+</html>

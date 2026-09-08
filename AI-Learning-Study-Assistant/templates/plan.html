@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Plan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <a href="/">← Home</a>
+    <h1>Learning Plan</h1>
+
+    <form method="post">
+        <input type="text" name="subject" placeholder="Subject / topic" required>
+        <input type="number" name="days" value="7" min="1" max="60" required>
+        <button type="submit">Create Plan</button>
+    </form>
+
+    {% if result %}
+    <div class="answer"><pre>{{ result }}</pre></div>
+    {% endif %}
+</div>
+</body>
+</html>

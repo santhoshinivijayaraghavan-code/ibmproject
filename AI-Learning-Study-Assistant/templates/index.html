@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Learning & Study Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>AI Learning & Study Assistant</h1>
+    <p>RAG + Memory + Tools + Ollama</p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="message">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="grid">
+        <div class="card">
+            <h2>1. Course Material</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="course_file" accept=".pdf,.txt" required>
+                <button type="submit">Upload Material</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>2. Ask Questions</h2>
+            <p>Ask questions from your uploaded course material.</p>
+            <a href="/chat">Open Study Chat</a>
+        </div>
+
+        <div class="card">
+            <h2>3. Learning Plan</h2>
+            <p>Generate a day-by-day learning plan.</p>
+            <a href="/plan">Create Plan</a>
+        </div>
+
+        <div class="card">
+            <h2>4. Quiz</h2>
+            <p>Generate MCQ questions for a topic.</p>
+            <a href="/quiz">Generate Quiz</a>
+        </div>
+
+        <div class="card">
+            <h2>5. Memory & Progress</h2>
+            <p>View saved study interactions and quiz records.</p>
+            <a href="/progress">View Progress</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

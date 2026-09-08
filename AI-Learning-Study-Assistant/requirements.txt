@@ -1,0 +1,6 @@
+Flask
+requests
+pypdf
+chromadb
+sentence-transformers
+gunicorn
